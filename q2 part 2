@@ -1,0 +1,33 @@
+import random
+import matplotlib.pyplot as plt
+import numpy as np
+
+
+
+d = dict()
+
+for i in range(100000):
+    d[i]=0
+
+# print(len(d))
+d2 = dict(d)
+keys = list(d.keys())
+
+for i in range(100000):
+    r = random.choice(keys)
+    d[r]+=1
+values = d.values()
+# plt.hist(values, bins = [0,1,2,3,4,5, 6, 7, 8])
+# plt.show()
+print(id(d),id(d2))
+keys2 = list(d2.keys())
+for i in range(100000):
+    r1 = random.choice(keys2)
+    r2 = random.choice(keys2)
+    if(d2[r1]<d2[r2]):
+        d2[r1]+=1
+    else:
+        d2[r2]+=1
+
+plt.hist(d2.values(),bins = [0,1,2,3,4,5])
+plt.show()
