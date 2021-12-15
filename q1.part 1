@@ -1,0 +1,13 @@
+import random
+
+people = [i for i in range(500)]
+skill = [i for i in range(500)]
+ss = []
+for i in range(500):
+    a = set()
+    while(len(a)<25):
+        r = random.choice(skill)
+        a.add(r)
+    ss.append(a)
+print(ss[0:5])
+
